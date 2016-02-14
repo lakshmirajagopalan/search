@@ -1,0 +1,10 @@
+.idea
+*.ipr
+*.iws
+*.iml
+*.class
+target/**
+.idea_modules/
+project/project/*
+project/target/*
+**/target/*
