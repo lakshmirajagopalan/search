@@ -13,18 +13,12 @@ class Search(index: Index) {
 }
 
 object Search extends App {
-  val index = List(
-    Term("ambitious", 1) -> List(2),
-    Term("be", 1) -> List(2),
-    Term("brutus", 2) -> List(1, 2),
-    Term("capitol", 1) -> List(1),
-    Term("caesar", 2) -> List(1, 2),
-    Term("julius", 1) -> List(1),
-    Term("killed", 1) -> List(2),
-    Term("noble", 1) -> List(2),
-    Term("was", 2) -> List(1, 2),
-    Term("with", 1) -> List(2)
+  val tokens = List(
+    (1, "I did enact Julius Caesar: I was killed i' the Capitol; Brutus killed me"),
+    (2, "So let it be with Caesar. The noble Brutus hath told you Caesar was ambitious")
   )
+  val index = new Indexer().index(tokens)
+  println(index)
   val query = "noble caesar was killed"
 
   val result = new Search(index).search(query)

@@ -20,4 +20,13 @@ object SearchUtils {
       case (x :: xs, y :: ys) => filterIndex(xs, y :: ys)
     }
 
+  def stem(token: Token) = {
+    var stemmedToken = token
+    if (stemmedToken.endsWith("sses")) stemmedToken=stemmedToken.dropRight(2)
+    else if(stemmedToken.endsWith("ies")) stemmedToken=stemmedToken.dropRight(2)
+    else if(stemmedToken.endsWith("ss")) stemmedToken=stemmedToken
+    else if(stemmedToken.endsWith("s")) stemmedToken=stemmedToken.dropRight(2)
+    stemmedToken
+  }
+
 }
